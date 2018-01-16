@@ -30,6 +30,7 @@
     "resolve-url-loader": "^2.2.1",
     "sass-loader": "^6.0.6",
     "superagent": "^3.8.2",
+    "uuid": "^3.2.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
   },
