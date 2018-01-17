@@ -1,39 +1,41 @@
-401 JS --  Lab 31 Budget Tracker
-===
+## 31 Budget Tracker
+ 
+ #### App
+* The app component should manage the frontend routes and have a navbar
+The `/` route should display the `Dashboard` component
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-  * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-susan`
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas  
-  
-## Requirements  
-#### Configuration  
-Your lab directory must include  
-* **README.md** -- with a documention about your lab
-* **.babelrc** -- with all dependencies and dev-dependencies 
-* **.eslintrc** -- with the class .eslintrc file
-* **.gitignore** -- with a robust gitignore
-* **.eslintignore** -- with the class .eslintignore
-* **package.json** -- with all dependencies and dev-dependencies 
-* **webpack.config.js** -- with webpack config
-* **src/** -- containing the front end code
-* **src/main.js** -- containing the entire app
-* **src/style** -- containing your sass
-* **src/style/main.scss** -- for importing and including reset and base
+#### Dashboard Component 
+*  Props: Yes
+*  Uses Props: Yes
+*  Has State: App State
+ 
+The dashboard renders on the `/` route a form where the user may input the name of a category and the budget in dollars.  On submission, it renders the category, as well as delete and update buttons.  
 
-## Feature Tasks 
-#### Category 
-* in this app a category should contain at least the following properties
-  * `id` a uuid
-  * `timestamp` a date from when the category was created
-  * `name` a string that is the name of the category
-  * `budget` a number that is the total amount of $ in the category 
-  * fell free to add more to your categories if you want
+Using the mapStatetoProps() hook method, the category is saved in state with properties: 
+`id (int)` `timestamp(date)` `name (string)` `budget (int)`
 
-#### redux
+Using the mapDispatchToProps() hook method, the categoryCreate(), categoryUpdate(), and categoryRemove() methods are given access to the dispatch method where they can execute their specific functions when called elsewhere in the app.
+
+#### CategoryForm Component
+*  Props: Yes
+*  Uses Props: Yes
+*  Has State: UI State
+
+Using the bound handleChange() method, the category can pass its name and budget to the state as `key: value` pairs.
+
+Using the bound handleSubmit() method, the category fields can be reset to an empty state.
+
+Using the componentWillReceiveProps() hook method, the form may be used for both updating and submitting new information.
+
+Uses a render () method as a hook to create a form element with two input fields and a submission button.  On value entry, the UI state is updated and on change, the previously described handleChange method sets the state.
+
+#### CategoryItem
+*  Props: Yes
+*  Uses Props: Yes
+*  Has State: No
+
+Uses the render () method as a hook to create a div with an `h2` heading which contains the name of a category and a budget, both of which are accessed as props which are passed in by the Dashboard component. It also renders a button that has `onClick` delete functionality provided by the categoryRemove() method.  It also renders a category form which will enable updating of the category information.
+
 ###### reducer
 * create a category reducer in your your reducer direcoty
 * this reducer should support the following interactions 
@@ -43,40 +45,5 @@ Your lab directory must include
 
 ###### action creators
 * you should create an action createor for each interaction supported by your category reducer
-
-#### Components
-Create the following components and structure them according to the following diagram.  
-```
-Provider
-  App 
-    BrowserRouter
-      Route / Dashboard
-        CategoryForm -- for creating categorys
-        [Category Item]
-           CategoryForm  -- for updating categorys
-```
-
-###### App Component 
-The App component should setup the single page applicaion routes
-
-###### Dashboard Component 
-* should be displayed on the `/` route
-* should use react-redux's `connect` to map state and dispatchable methods to props
-* should display a `CategoryForm` for adding categories to the app state
-* should display a `CategoryItem` for each category in the app state
-
-###### CategoryForm Component
-* should expect an `onComplete` prop to be a function
-  * that function should be invoked with the CategoryForms State when the form is submited
-* should support and optional `category` prop that will initialize the state of the form
-
-###### CategoryItem Component
-* should display the category's name and budget
-* should recive a category prop from Dashbaord
-* should display a delete button
-  * `onClick` the category should be removed from the application state
-* should display a CategoryForm  
-  * `onComplete` the form should update the component in the application state
-
 ##  Documentation  
 Write a description of the project in your README.md

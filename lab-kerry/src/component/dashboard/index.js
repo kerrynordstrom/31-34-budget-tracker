@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
 import * as category from '../../action/category';
+import '../../style/main.scss'
 
 class Dashboard extends React.Component {
 	render() {
