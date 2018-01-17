@@ -4,7 +4,8 @@
   "description": "31-34 Budget Tracker",
   "main": "main.js",
   "scripts": {
-    "test": "jest -i --coverage"
+    "test": "jest -i --coverage",
+    "watch": "webpack-dev-server --inline --hot"
   },
   "keywords": [
     "Redux"

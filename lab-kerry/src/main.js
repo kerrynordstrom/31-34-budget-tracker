@@ -4,7 +4,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
 import App from './component/app';
-import categoriesReducer from './reducer/category.js';
+import categoriesReducer from './reducer/categories.js';
 
 let store = createStore(categoriesReducer);
 

@@ -16,9 +16,9 @@ class Dashboard extends React.Component {
 		<div className='dashboard'>
 			<CategoryForm onComplete={categoryCreate} />
 			{
-				categories.map((section, index) => 
-					<div key={index}>
-					<h2>{category.title}</h2>
+				categories.map((category, i) => 
+					<div key={i}>
+					<h2>{category.name} {category.budget}</h2>
 					<button onClick={() => categoryRemove(category)}> Delete </button>
 					<CategoryForm category={category} onComplete={categoryUpdate} />
 					</div>
