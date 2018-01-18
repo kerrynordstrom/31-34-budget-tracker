@@ -24,10 +24,6 @@ class ExpenseItem extends React.Component {
 	};
 } 
 
-let mapStateToProps = (state) => {
-	return ({});
-};
-
 let mapDispatchToProps = (dispatch) => {
 	return {
 		expenseUpdate: (data) => dispatch(expense.updateAction(data)),
@@ -35,4 +31,4 @@ let mapDispatchToProps = (dispatch) => {
 	}
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExpenseItem);
+export default connect(null, mapDispatchToProps)(ExpenseItem);
