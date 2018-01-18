@@ -19,9 +19,7 @@ export default(state = emptyState, action) => {
 			return {...state, [categoryID]: updatedExpenses};
 		case 'EXPENSE_UPDATE':
 			categoryID = payload.categoryID;
-			console.log(payload);
 			categoryExpenses = state[categoryID];
-			console.log(categoryExpenses);
 			updatedExpenses = categoryExpenses.map(expense => expense.id === payload.id ? payload : item);
 
 			return {...state, [categoryID]: updatedExpenses};
