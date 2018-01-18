@@ -20,13 +20,15 @@ export default(state = emptyState, action) => {
 		case 'EXPENSE_UPDATE':
 			categoryID = payload.categoryID;
 			categoryExpenses = state[categoryID];
-			updatedExpenses = categoryExpenses.map(expense => expense.id === payload.id ? payload : item);
+			updatedExpenses = categoryExpenses.map(
+				expense => expense.id === payload.id ? payload : expense);
 
 			return {...state, [categoryID]: updatedExpenses};
 		case 'EXPENSE_REMOVE':
 			categoryID = payload.categoryID;
 			categoryExpenses = state[categoryID];
-			updatedExpenses = categoryExpenses.filter(expense => expense.id !== payload.id);
+			updatedExpenses = categoryExpenses.filter(
+				expense => expense.id !== payload.id);
 
 			return {...state, [categoryID]: updatedExpenses};
 		default:
