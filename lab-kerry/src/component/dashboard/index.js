@@ -2,29 +2,35 @@ import React from 'react';
 import {connect} from 'react-redux';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
-import * as category from '../../action/category';
-import '../../style/main.scss'
+import * as categoryActions from '../../action/category';
+import './dashboard.scss'
 
 class Dashboard extends React.Component {
 	render() {
-		let {
+		let { 
 			categories,
 			categoryCreate,
 			categoryUpdate,
 			categoryRemove,
 		} = this.props;
 
+
 	return (
 		<div className='dashboard'>
-			<CategoryForm onComplete={categoryCreate} />
-			<ul>
-			{
-				categories.map((category, i) => 
-					<li key={i}>
-							<CategoryItem category={category} onUpdate={categoryUpdate} onRemove={categoryRemove}/>
-					</li>
-			)}
-			</ul>
+			<div>
+				<CategoryForm onComplete={categoryCreate} />
+				<ul id='category-add'>
+				{
+					categories.map((category, i) => 
+						<li key={i}>
+								<CategoryItem 
+								category={category} 
+								onUpdate={categoryUpdate} 
+								onRemove={categoryRemove}/>
+						</li>
+				)}
+				</ul>
+			</div>
 		</div>
 		);
 	}
@@ -32,15 +38,13 @@ class Dashboard extends React.Component {
 
 let mapStateToProps = (state) => {
 	return {
-		categories: state,
+		categories: state.categories,
 	}
 };
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-		categoryCreate: (data) => dispatch(category.createAction(data)),
-		categoryUpdate: (data) => dispatch(category.updateAction(data)),
-		categoryRemove: (data) => dispatch(category.removeAction(data)),
+		categoryCreate: (data) => dispatch(categoryActions.createAction(data)),
 	}
 };
 
