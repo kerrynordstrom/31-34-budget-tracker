@@ -4,12 +4,12 @@ let emptyState = {
 	content: ''
 };
 
-class Expense extends React.Component {
+class ExpenseForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = this.props.expense || emptyState;
+		this.state = props.expense || emptyState;
 
-		let memberFunctions = Object.getOwnPropertyNames(CategoryForm.prototype);
+		let memberFunctions = Object.getOwnPropertyNames(ExpenseForm.prototype);
 		for (let functionName of memberFunctions) {
 			if (functionName.startsWith('handle')) {
 				this[functionName] = this[functionName].bind(this);

@@ -6,18 +6,18 @@ import * as expense from '../../action/expense';
 class ExpenseItem extends React.Component {
 	render() {
 		let { 
-			expense, 
-			onUpdate, 
-			onRemove 
+			expense,
+			expenseUpdate, 
+			expenseRemove 
 		} = this.props;
 
 		return (
 			<div className='single-expense'>
-				<h2>{expense.content}</h2>
-				<button onClick={() => onRemove(expense)}> Delete </button>
+				<p>{expense.content}</p>
+				<button onClick={() => expenseRemove(expense)}> Delete </button>
 				<ExpenseForm
 					expense={expense}
-					onComplete={onUpdate}
+					onComplete={expenseUpdate}
 				/>
 			</div>
 		);

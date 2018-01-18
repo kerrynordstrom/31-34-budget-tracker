@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
-import * as category from '../../action/category';
+import * as categoryActions from '../../action/category';
 import '../../style/main.scss'
 
 class Dashboard extends React.Component {
 	render() {
-		let {
+		let { 
 			categories,
 			categoryCreate,
 			categoryUpdate,
@@ -22,7 +22,10 @@ class Dashboard extends React.Component {
 			{
 				categories.map((category, i) => 
 					<li key={i}>
-							<CategoryItem category={category} onUpdate={categoryUpdate} onRemove={categoryRemove}/>
+							<CategoryItem 
+							category={category} 
+							onUpdate={categoryUpdate} 
+							onRemove={categoryRemove}/>
 					</li>
 			)}
 			</ul>
@@ -33,15 +36,13 @@ class Dashboard extends React.Component {
 
 let mapStateToProps = (state) => {
 	return {
-		...state,
+		categories: state.categories,
 	}
 };
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-		categoryCreate: (data) => dispatch(category.createAction(data)),
-		categoryUpdate: (data) => dispatch(category.updateAction(data)),
-		categoryRemove: (data) => dispatch(category.removeAction(data)),
+		categoryCreate: (data) => dispatch(categoryActions.createAction(data)),
 	}
 };
 

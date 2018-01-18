@@ -1,8 +1,11 @@
+import uuid from 'uuid';
+
 export const createAction = ({ content, categoryID }) => ({
 	type: 'EXPENSE_CREATE',
 	payload: {
 		content,
 		categoryID,
+		id: uuid.v1(),
 	}
 });
 
