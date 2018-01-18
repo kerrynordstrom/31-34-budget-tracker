@@ -14,6 +14,7 @@ class Dashboard extends React.Component {
 			categoryRemove,
 		} = this.props;
 
+
 	return (
 		<div className='dashboard'>
 			<CategoryForm onComplete={categoryCreate} />
@@ -32,7 +33,7 @@ class Dashboard extends React.Component {
 
 let mapStateToProps = (state) => {
 	return {
-		categories: state,
+		...state,
 	}
 };
 
