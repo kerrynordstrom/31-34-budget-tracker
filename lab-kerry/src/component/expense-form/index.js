@@ -24,7 +24,7 @@ class ExpenseForm extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		let categoryID = this.props.category ? this.props.category.id : this.props.expense.sectionID;
+		let categoryID = this.props.category ? this.props.category.id : this.props.expense.categoryID;
 		this.props.onComplete({
 			...this.state,
 			categoryID,
@@ -47,9 +47,17 @@ class ExpenseForm extends React.Component {
 
 				<input
 					type='text'
-					name='content'
-					placeholder='content'
-					value={this.state.content}
+					name='name'
+					placeholder='name'
+					value={this.state.name}
+					onChange={this.handleChange}
+				/>
+
+				<input
+					type='number'
+					name='price'
+					placeholder='price'
+					value={this.state.price}
 					onChange={this.handleChange}
 				/>
 

@@ -13,7 +13,7 @@ class ExpenseItem extends React.Component {
 
 		return (
 			<div className='single-expense'>
-				<p>{expense.content}</p>
+				<p>{expense.name}: ${expense.price}</p>
 				<button onClick={() => expenseRemove(expense)}> Delete </button>
 				<ExpenseForm
 					expense={expense}
