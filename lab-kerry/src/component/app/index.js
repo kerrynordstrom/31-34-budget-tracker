@@ -1,7 +1,7 @@
+import './_app.scss';
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Dashboard from '../dashboard';
-import './app.scss'
 
 class App extends React.Component {
 	render () {

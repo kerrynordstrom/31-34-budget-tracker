@@ -1,9 +1,29 @@
+import './_expense-item.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from '../expense-form';
 import * as expense from '../../action/expense';
 
 class ExpenseItem extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {editing: false};
+
+
+		let memberFunctions = Object.getOwnPropertyNames(ExpenseItem.prototype);
+		for (let functionName of memberFunctions) {
+			if (functionName.startsWith('handle')) {
+				this[functionName] = this[functionName].bind(this);
+			}
+		}
+	}
+
+	handleUpdate(expense) {
+		console.log(expense);
+		this.props.expenseUpdate(expense);
+		this.setState({editing: false});
+	}
+
 	render() {
 		let { 
 			expense,
@@ -11,14 +31,15 @@ class ExpenseItem extends React.Component {
 			expenseRemove 
 		} = this.props;
 
+		let contentJSX = <p> {expense.name}: ${expense.price}</p>
+		let editingJSX = <ExpenseForm expense={expense} onComplete={this.handleUpdate} />
+		let renderJSX = this.state.editing ? editingJSX : contentJSX;
+
 		return (
 			<div className='single-expense'>
-				<p>{expense.name}: ${expense.price}</p>
 				<button onClick={() => expenseRemove(expense)}> Delete </button>
-				<ExpenseForm
-					expense={expense}
-					onComplete={expenseUpdate}
-				/>
+			<main onDoubleClick={() => this.setState({editing: true})}>{renderJSX}
+			</main>
 			</div>
 		);
 	};
