@@ -19,17 +19,15 @@ class Dashboard extends React.Component {
 		<div className='dashboard'>
 			<div>
 				<CategoryForm onComplete={categoryCreate} />
-				<ul id='category-add'>
+				<div className='category-container'>
 				{
 					categories.map((category, i) => 
-						<li key={i}>
-								<CategoryItem 
+								<CategoryItem key={i}
 								category={category} 
 								onUpdate={categoryUpdate} 
 								onRemove={categoryRemove}/>
-						</li>
 				)}
-				</ul>
+				</div>
 			</div>
 		</div>
 		);

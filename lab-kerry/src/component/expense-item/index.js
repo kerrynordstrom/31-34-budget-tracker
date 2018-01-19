@@ -31,13 +31,13 @@ class ExpenseItem extends React.Component {
 			expenseRemove 
 		} = this.props;
 
-		let contentJSX = <p> {expense.name}: ${expense.price}</p>
+		let contentJSX = <p> {expense.description}: ${expense.price}</p>
 		let editingJSX = <ExpenseForm expense={expense} onComplete={this.handleUpdate} />
 		let renderJSX = this.state.editing ? editingJSX : contentJSX;
 
 		return (
-			<div className='single-expense'>
-				<button onClick={() => expenseRemove(expense)}> Delete </button>
+			<div className='expense'>
+				<button className='delete' onClick={() => expenseRemove(expense)}> Delete </button>
 			<main onDoubleClick={() => this.setState({editing: true})}>{renderJSX}
 			</main>
 			</div>

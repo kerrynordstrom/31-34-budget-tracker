@@ -2,7 +2,7 @@ import './_expense-form.scss';
 import React from 'react';
 
 let emptyState = {
-	name: '',
+	description: '',
 	price: 0,
 };
 
@@ -47,11 +47,11 @@ class ExpenseForm extends React.Component {
 				onSubmit={this.handleSubmit}
 				className='expense-form'>
 
-				<input
+				<textarea
 					type='text'
-					name='name'
-					placeholder='name'
-					value={this.state.name}
+					name='description'
+					placeholder='description'
+					value={this.state.description}
 					onChange={this.handleChange}
 				/>
 

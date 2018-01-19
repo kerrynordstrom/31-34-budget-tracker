@@ -1,19 +1,19 @@
 @import '_vars';
 
 .dashboard {
-	.section-form:first-child {
+	.category-form:first-child {
 		padding: $pad;
 		border: 1px solid $color-tertiary;
 		margin-bottom: $pad;
 	}
 
-	.section-container {
+	.category-container {
 		height: calc(100vh - 8em);
 		border: 1px solid $color-tertiary;
 		padding: $pad;
 	
 
-		.section {
+		.category {
 			padding-bottom: $pad;
 			margin-bottom: $pad;
 		}
@@ -23,12 +23,12 @@
 }
 
 @media screen and (min-width: 700px) {
-	.section-container {
+	.category-container {
 		overflow-x: scroll;
 		overflow-y: hidden;
 		white-space: nowrap;
 
-		.section {
+		.category {
 			white-space: normal;
 			display: inline-block;
 			width: 250px;
