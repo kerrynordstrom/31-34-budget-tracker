@@ -7,9 +7,12 @@ import App from './component/app';
 import reducer from './reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import session from './lib/redux-session';
+import reporter from './lib/redux-reporter';
+
 let middleware = {};
 const store = createStore(reducer, composeWithDevTools(
-	applyMiddleware(...middleware),
+	applyMiddleware(reporter, session),
 ));
 
 const container = document.createElement('div');

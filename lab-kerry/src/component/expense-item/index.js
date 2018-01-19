@@ -22,7 +22,7 @@ class ExpenseItem extends React.Component {
 			</div>
 		);
 	};
-} 
+} 	
 
 let mapDispatchToProps = (dispatch) => {
 	return {
