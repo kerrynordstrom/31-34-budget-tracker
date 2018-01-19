@@ -1,3 +1,4 @@
+import'./style/main.scss'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware} from 'redux';
@@ -12,7 +13,7 @@ import reporter from './lib/redux-reporter';
 
 let middleware = {};
 const store = createStore(reducer, composeWithDevTools(
-	applyMiddleware(reporter, session),
+	applyMiddleware(reporter, session)
 ));
 
 const container = document.createElement('div');

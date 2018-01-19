@@ -37,7 +37,7 @@ class ExpenseItem extends React.Component {
 
 		return (
 			<div className='expense'>
-				<button className='delete' onClick={() => expenseRemove(expense)}> Delete </button>
+				<button className='delete' onClick={() => expenseRemove(expense)}> X </button>
 			<main onDoubleClick={() => this.setState({editing: true})}>{renderJSX}
 			</main>
 			</div>

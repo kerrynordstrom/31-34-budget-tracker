@@ -66,7 +66,20 @@ ul {
 	padding-left: $pad;
 }
 
+@mixin border-gradient($dir, $from, $to, $width) {
+	border-left: $width solid $from;
+	border-right: $width solid $to;
+	background-image:
+		-webkit-linear-gradient($dir, $from, $to),
+		-webkit-linear-gradient($dir, $from, $to);
+	background-size: 100% $width;
+	background-position: 0 100%, 0 0;
+	background-repeat: no-repeat;
+	background-clip: border-box;
+}
+
 button {
+	@include border-gradient(left, black, green, 5px);
 	padding: $pad;
 	background-color: $color-tertiary;
 	color: $color-white;
