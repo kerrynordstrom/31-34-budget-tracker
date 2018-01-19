@@ -1,8 +1,12 @@
+@import 'vars';
+
 .app {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	padding: $pad * 2;
 }
 
-.yolo {
-	background: lightgreen;
-	width: 50%;
+@media screen and (min-width: 960px) {
+	.app {
+		width: 960px;
+		margin: 0 auto;
+	}
 }

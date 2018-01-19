@@ -1,14 +1,41 @@
+@import 'vars';
 
-li {
-	list-style: none;
+.dashboard {
+	.section-form:first-child {
+		padding: $pad;
+		border: 1px solid $color-blue;
+		margin-bottom: $pad;
+	}
+
+	.section-container {
+		height: calc(100vh - 8em);
+		border: 1px solid $color-blue;
+		padding: $pad;
+	
+
+		.section {
+			padding-bottom: $pad;
+			margin-bottom: $pad;
+		}
+
+	}
+
 }
 
-#category-add {
-	position: absolute;
-	float: left;
-	margin-left: 5%;
-	border-radius: 10px;
-	height: auto;
-	width: 50%;
-	background-color: lightblue;
+@media screen and (min-width: 700px) {
+	.section-container {
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+
+		.section {
+			white-space: normal;
+			display: inline-block;
+			width: 250px;
+			height: 100%;
+			margin: 0;
+			margin-right: $pad;
+		}
+	}
 }
+

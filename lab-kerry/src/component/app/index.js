@@ -8,7 +8,7 @@ class App extends React.Component {
 		return (
 			<div className='app'>
 				<BrowserRouter>
-					<div className='yolo'>
+					<div>
 						<h1>Rad Expense Tracker</h1>
 						<Route exact path='/' component={Dashboard} />
 					</div>
