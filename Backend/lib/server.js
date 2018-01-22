@@ -3,10 +3,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('./logger');
+const cors = require('cors');
 
 const app = express();
 let isServerOn = false;
 let httpServer = null;
+
+app.use(cors());
 
 // -----------------------------------
 //Setting up MongoDB and Mongoose
