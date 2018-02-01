@@ -23,6 +23,16 @@ webPackConfig.plugins = [
 webPackConfig.module = {
 	rules: [
 		{
+			test: /\. (jpg|gif|png)$/,
+			use: [{
+				loader: 'url-loader',
+				options: {
+					limit: 10000,
+					name: 'image/[name].[hash].[ext]',
+				},
+			}],
+		},
+		{
 			test: /\.js$/,
 			exclude: /node_modules/,
 			loader: 'babel-loader',

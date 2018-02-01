@@ -31,6 +31,29 @@ export default(state = emptyState, action) => {
 				expense => expense.id !== payload.id);
 
 			return {...state, [categoryID]: updatedExpenses};
+
+		case 'EXPENSE_UPDATE_CATEGORY_ID': 
+			//Setting helper variables to keep track of expenses to be moved
+			let expense = payload.expense;
+			let oldCategoryId = expense.categoryID;
+
+			//Setting up categoryID change
+			if(oldCategoryID === payload.categoryID)
+				return state;
+			
+			//Updating section array
+			let oldCategory = state[oldCategoryID].filter(foo => foo.id !== expense.id);
+
+			expense.categoryID = payload.categoryID;
+
+			//Adding the expense to its new category
+			let newCategory = [expense, ...state[payload.categoryID]];
+
+			return {
+				...state,
+				[oldCategoryID]: oldCategory,
+				[expense.categoryID]: newCategory,
+			}
 		default:
 			return state;
 	}

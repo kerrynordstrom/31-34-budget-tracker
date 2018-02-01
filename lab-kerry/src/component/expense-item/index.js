@@ -2,6 +2,7 @@ import './_expense-item.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from '../expense-form';
+import Draggable from '../draggable';
 import * as expense from '../../action/expense';
 
 class ExpenseItem extends React.Component {
@@ -38,8 +39,10 @@ class ExpenseItem extends React.Component {
 		return (
 			<div className='expense'>
 				<button className='delete' onClick={() => expenseRemove(expense)}> X </button>
+		<Draggable data={this.data}>
 			<main onDoubleClick={() => this.setState({editing: true})}>{renderJSX}
 			</main>
+		</Draggable>
 			</div>
 		);
 	};

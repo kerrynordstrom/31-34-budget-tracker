@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import ExpenseItem from '../expense-item';
 import CategoryForm from '../category-form';
 import ExpenseForm from '../expense-form';
+import DropZone from '../drop-zone';
 
 import * as expenseActions from '../../action/expense';
 import * as categoryActions from '../../action/category';
@@ -32,7 +33,8 @@ class CategoryItem extends React.Component {
 			category,
 			expenseCreate, 
 			categoryUpdate, 
-			categoryRemove
+			categoryRemove,
+			expenseUpdateSection,
 		} = this.props;
 
 		let categoryExpenses = expenses[category.id];
@@ -50,18 +52,20 @@ class CategoryItem extends React.Component {
 		return (
 			
 			<div className='category'>
-				{renderJSX}
-				<ExpenseForm 
-				category={category}
-				onComplete={expenseCreate} />
-				<main className='expense-container'>
-				{
-					categoryExpenses.map((expense, index) => 
-				<ExpenseItem
-				key={index}
-				expense={expense} />)
-				}
-				</main>
+				<DropZone onComplete={(expense) => expenseUpdateCategory(expense, category.id)}>
+					{renderJSX}
+					<ExpenseForm 
+					category={category}
+					onComplete={expenseCreate} />
+					<main className='expense-container'>
+					{
+						categoryExpenses.map((expense, index) => 
+					<ExpenseItem
+					key={index}
+					expense={expense} />)
+					}
+					</main>
+				</DropZone>
 			</div>
 		);
 	};
@@ -73,6 +77,7 @@ let mapStateToProps = (state) => ({
 
 let mapDispatchToProps = (dispatch) => ({	
 	expenseCreate: (data) => dispatch(expenseActions.createAction(data)),
+	expenseUpdateCategory: (data, categoryID) => dispatch(expenseActions.updateCategoryID(data, categoryID)),
 	categoryUpdate: (data) => dispatch(categoryActions.updateAction(data)),
 	categoryRemove: (data) => dispatch(categoryActions.removeAction(data)),
 });

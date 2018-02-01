@@ -20,3 +20,8 @@ export const removeAction = (expense) => ({
 	type: 'EXPENSE_REMOVE',
 	payload: expense,
 });
+
+export const updateCategoryID = (expense, categoryID) => ({
+	type: 'EXPENSE_UPDATE_CATEGORY_ID',
+	payload: {expense, categoryID},
+})
