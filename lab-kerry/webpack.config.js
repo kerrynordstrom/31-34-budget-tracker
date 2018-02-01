@@ -1,9 +1,17 @@
 'use strict';
 
+require('dotenv').config();
+
+const {DefinePlugin, EnvironmentPlugin} = require('webpack');
+const CleanPlugin = ('clean-webpack-plugin');
+const UglifyPlugin = ('uglify-webpack-plugin');
+
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const webPackConfig = module.exports = {};
+
+const PRODUCTION = 
 
 //--------------------------------------------------------------------
 webPackConfig.entry = `${__dirname}/src/main.js`;
@@ -23,11 +31,11 @@ webPackConfig.plugins = [
 webPackConfig.module = {
 	rules: [
 		{
-			test: /\. (jpg|gif|png)$/,
+			test: /\.(jpg|gif|png)$/,
 			use: [{
 				loader: 'url-loader',
 				options: {
-					limit: 10000,
+					limit: 10000000,
 					name: 'image/[name].[hash].[ext]',
 				},
 			}],
