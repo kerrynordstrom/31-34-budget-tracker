@@ -1,5 +1,5 @@
 import React from 'react';
-import dragPhoto from '../../asset/drag.jpg'
+import dragPhoto from '../../image/drag.jpg'
 
 let image = dcoument.createElement('img');
 img.src = dragPhoto;
