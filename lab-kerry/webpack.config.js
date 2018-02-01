@@ -23,7 +23,7 @@ webPackConfig.plugins = [
 webPackConfig.module = {
 	rules: [
 		{
-			test: /\. (jpg|gif|png)$/,
+			test: /\.(jpg|gif|png)$/,
 			use: [{
 				loader: 'url-loader',
 				options: {

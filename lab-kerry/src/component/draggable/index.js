@@ -1,8 +1,8 @@
 import React from 'react';
-import dragPhoto from '../../image/drag.jpg'
+import dragPhoto from '../../asset/drag.jpg'
 
-let image = dcoument.createElement('img');
-img.src = dragPhoto;
+let image = document.createElement('img');
+image.src = dragPhoto;
 
 class Draggable extends React.Component {
 	constructor(props) {
